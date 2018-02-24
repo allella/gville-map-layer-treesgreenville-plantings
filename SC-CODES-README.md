@@ -1,17 +1,13 @@
-#SC Code Week 8-12 Project Goals
-* Jump to [Week 8](#week8)
-* Jump to [Week 9](#week9)
-* Jump to [Week 10](#week10)
-* Jump to [Week 11-12](#week11)
+# SC Codes Week Project Goals
 
-##<a name="week8">Goals for Week 8</a>
+## <a name="week1">Goals for Week 1</a>
 1. Setup a Cloud9 account using the invite sent via email by Pamela (if it asks for a credit card contact Pamela)
 1. Connect your GitHub account to Cloud9 [via Connected Services](https://c9.io/account/services)
-1. Start thinking about ideas for open/public data you'd like to gather and share with the world.
 1. Understand the [broader purpose of this open data project](https://github.com/codeforgreenville/leaflet-google-sheets-template/blob/master/README.md)
-1. Continue reading below for details about weeks 8 and 9
+1. Start thinking about ideas for open/public data you'd like to maintain or co-maintain.
+1. Continue reading below for details about upcoming weeks.
 
-###Ideally, your data set should:
+### Ideally, your data set should:
 * already be publicly discoverable
 * consist of [longitude, latitude] "point data" (shapes or paths will be too advanced and won't work with the sample documentation)
 * be relatively static, meaning not changing more than once every couple months
@@ -23,39 +19,26 @@
 
 Non-profits, the City, and the County would be ideal examples of places to find existing public data that's trapped. In other cases, you may need to do the research / leg work to create the data.
 
-Good example: The [City has a map of parking decks](http://www.greenvillesc.gov/513/Parking) but the data is stuck inside of the embedded Google map at the bottom. You can't easily take that map and easily pull it into a Leaflet layer.  Wouldn't it be great if it was a real-time GeoJSON based Leaflet map pulling from your project? (Answer: yes)
+Good example: The [City has a map of parking decks](http://www.greenvillesc.gov/513/Parking) but the data was stuck inside of the embedded Google map at the bottom. You can't easily take that map and pull it into your own map.  Wouldn't it be great if it was a real-time GeoJSON-based data layer? (Answer: yes)
 
 Bad Examples: Things like Greenville restaurants, potholes, or vape shops. These change frequently and/or are already done well enough by other services.
 
-###Map Data Ideas and Staking Your Claim
+### Map Data Ideas and Staking Your Claim
 
-Below is intended to seed your brain. If it sparks an idea of your own then add your idea and name to the [open data spreadsheet](https://docs.google.com/spreadsheets/d/1IWsFT1p0ZY-DInfMOFq_gmqpGuKyl5wyBb9VoyoEjRs/edit#gid=0)
+The [first two classes of SC Codes implemented many ideas](https://data.openupstate.org/map-layers). As such, your class has the option of creating a new, original idea OR helping co-maintain an existing map layer.
 
-If nobody else has claimed a suggested idea then you're welcome to take it by putting your name beside in [the list](https://docs.google.com/spreadsheets/d/1IWsFT1p0ZY-DInfMOFq_gmqpGuKyl5wyBb9VoyoEjRs/edit#gid=0)
+If you opt to [co-maintain an existing map layer](https://data.openupstate.org/map-layers) then click on the map title and then click the "Contribute Link" under that maps details. It should open a Google Spreadsheet and you may see a blue "View only" button. Click that View only button and you can request edit access from the original owner of the spreadsheet. If you try to access an existing spreadsheet and get an error then contact Jim and Pamela on Slack.
 
-* Libraries
-* Historic Sites
-* Parks
-* Parking Decks
-* Community Gardens
-* Waterfalls
-* Trail Parking
-* Bike Racks
-* Danger Zones along trails
-* City and County Recycling locations
-* City and County Trash / Convenience Centers
-* Dog Parks
-* Tree Planting Sites
-* Public (K-12) Schools
+Once you've settled on an idea, whether new or co-maintaining, add your name and the idea to [the list](https://docs.google.com/spreadsheets/d/1IWsFT1p0ZY-DInfMOFq_gmqpGuKyl5wyBb9VoyoEjRs/edit#gid=1517769371) to stake your claim.
 
-##<a name="week9">Goals for Week 9</a>
-1. Complete the Week 8 goals above
+## <a name="week3">Goals for Week 2-3</a>
+1. Complete the Week 1-2 goals above
 1. Fork the GitHub Project
 1. Setup a Cloud9 Workspace that talks with your GitHub fork
 1. Do a basic Git command and push to GitHub
 1. Get the map and spreadsheet working together
 
-###Steps on GitHub
+### Steps on GitHub
 1. Decide on which data set you want to build
 1. Go to [our template GitHub project/repo](https://github.com/codeforgreenville/leaflet-google-sheets-template) and click "Fork" in the top-left
 1. We are [forking](https://help.github.com/articles/fork-a-repo/) with the intention of creating a starting point for your project. We will not get into "pull requests", but understand that people also fork projects as a way to create a branch/copy and then contribute back to the original project.
@@ -65,7 +48,7 @@ If nobody else has claimed a suggested idea then you're welcome to take it by pu
 1. In the "Repository name" box enter a name relevant to your data set. It should be 35 characters or less. Ex. ``gville-map-layer-parking-decks``
 1. Click the "Rename" button
 
-###Steps to Setup a C9.io Workspace that Uses Your GitHub Fork
+### Steps to Setup a C9.io Workspace that Uses Your GitHub Fork
 1. Go back to [your Cloud9 repositories](https://c9.io/account/repos) and refresh the page.
 1. The forked repository you created over at GitHub should be listed as an option.
 1. Click the "Clone to Edit" button associated with your fork repo.
@@ -74,41 +57,41 @@ If nobody else has claimed a suggested idea then you're welcome to take it by pu
 1. Click "Create workspace".
 1. The end result is that you've forked a project / repo in GitHub and now have a full copy of all the sample code. This means you can now start changing code and pushing your changes back up to your own GitHub fork.
 
-###Steps to Start Programming and using Git in Your Fancy C9 Workspace
+### Steps to Start Programming and using Git in Your Fancy C9 Workspace
 1. When your new workspace opens you'll see the terminal tab (the bottom-left tab) at the bottom of the screen. Drag the top line to make the terminal tab area larger and easier to see.
 1. This is a real Linux-style bash shell. You can type Linux commands in here, including Git commands.
-1. Type ``git config -l`` and press Enter. This will show various bits of info about the Git configuration of the active C9 workspace. Notice the "remote.origin.url" which should be pointing to your GitHub fork URL.
+1. Type ``git config -l`` (lower case L, not #1) and press Enter. This will show various bits of info about the Git configuration of the active C9 workspace. Notice the "remote.origin.url" which should be pointing to your GitHub fork URL.
 1. We'll run a basic git command as an example of using Git, GitHub, and the Cloud9 workspace.
 1. In the terminal tab type ``ls`` and you'll see a list of all the files in the current directory
 1. The ``SC-CODES-README.md`` file isn't necessary in your fork, since you already did all these steps. Let's delete it with Git and make that change reflect on your GitHub project
 1. In the terminal run ``git rm SC-CODES-README.md`` and press Enter. (Pro Tip: You could also type ``git rm SC`` and then hit tab key. The terminal shell will autocomplete the rest of the file name for you)
-1. Press the up arrow until you see the ``ls`` command again.  When you see it press Enter. This shows you two things: 1) the SC-CODES-README.md is now gone and 2) you can use the up / down arrows to scroll through recent commands
+1. Press the up arrow until you see the ``ls`` (lowercase LS) command again.  When you see it press Enter. This shows you two things: 1) the SC-CODES-README.md is now gone and 2) you can use the up / down arrows to scroll through recent commands
 1. Run ``git status`` and you'll see that git is ready for you to permanently commit your changes (1 deleted file).
 1. Run ``git commit -m 'Deleted an SC Codes related README file'``
 1. To push this commit up to the GitHub fork repository you now need to run ``git push``
 1. Go back to your fork page on GitHub and refresh the page. You should no longer see the deleted file and you should notice your commit message.
 
-###Steps to Get the Map and Spreadsheet Working
+# Steps to Get the Map and Spreadsheet Working
 1. Now, read the main [README.md](https://github.com/codeforgreenville/leaflet-google-sheets-template/blob/master/README.md) file for details on how to create a public spreadsheet and a Leaflet map.
 1. Side note: You can ignore messages like "This branch is 1 commit ahead, 1 commit behind codeforgreenville:master." on your GitHub fork page. This means changes were made to the project you forked. You're on your own now and don't need to keep in sync with the fork's origin.
 
-##<a name="week10">Goals for Week 10</a>
-1. Add your GitHub repository, geojson.php URL, and Google Sheet URLs to the [open data list](https://docs.google.com/spreadsheets/d/1IWsFT1p0ZY-DInfMOFq_gmqpGuKyl5wyBb9VoyoEjRs/edit#gid=0)
+## <a name="week4">Goals for Week 4+</a>
+1. Add your project specific URLs to the [open data list](https://docs.google.com/spreadsheets/d/1IWsFT1p0ZY-DInfMOFq_gmqpGuKyl5wyBb9VoyoEjRs/edit#gid=1517769371)
 1. Git add, commit, and push your changes from Cloud 9 up to GitHub.
 
 ### Share Your Work
-Please share your GitHub repository, GeoJSON URL, and Google Spreadsheet in the [open data list](https://docs.google.com/spreadsheets/d/1IWsFT1p0ZY-DInfMOFq_gmqpGuKyl5wyBb9VoyoEjRs/edit#gid=0) in the yellow highlighted boxes.
+Please share your Google Spreadsheet link, spreadsheet CSV link, GeoJSON link, Map Preview link, and GitHub link in the [open data list](https://docs.google.com/spreadsheets/d/1IWsFT1p0ZY-DInfMOFq_gmqpGuKyl5wyBb9VoyoEjRs/edit#gid=1517769371) in the yellow highlighted boxes.
 
-Through the power of GitHub, we'll publically publish your map and geojson under a directory of https://data.openupstate.org/maps/, which will become the reliable, hosted location for the public.  If/as you modify the project in the future we'd be able to easily pull your changes to https://data.openupstate.org/maps/
+Through the power of GitHub, we'll clone your map and GeoJSON to https://data.openupstate.org/map-layers where it will be publically available to the broader community.
 
 ### Git Commit and Push
-In week 9 you changed the index.html and geojson.php.  Let's add and commit these chages to version control using Git.
+Earlier, you changed the index.html and geojson.php.  Let's add and commit these chages to version control using Git.
 
-Go to your Cloud 9 workspace and click in the terminal tab at the bottom.
+Go to your Cloud 9 workspace and click in the terminal tab. It should be the bottom-left tab that says "bash".
 
 In the terminal, run ``git status`` and Git will tell you about the modified files. These are "Changes not staged for commit".
 
-You can also run ``git diff`` to see a "differential" of what's modified but not yet "staged" . You can use the arrow up/down or page up/down keys to scroll through the diff. There are + and - symbols showing which lines in the code are new or removed.  Press ESC to exit the diff tool.
+You can also run ``git diff`` to see a "differential" of what's modified but not yet "staged" . You can use the arrow up/down or page up/down keys to scroll through the diff. There are + and - symbols showing which lines in the code are new or removed.  If you see a colon (:) at the bottom of the terminal then you probably need to type the letter q (for quit) to escape out and back to the main terminal.
 
 Run ``git add index.html`` and then ``git add geojson.php`` to stage the files for commiting.
 
@@ -119,11 +102,11 @@ Commit the staged changes using ``git commit -m 'Customized Leaflet and PHP GeoJ
 Now let your GitHub repo know about your commit by running ``git push origin master`` or the shortcut ``git push``
 The repo on GitHub is configured as your git remote "origin" and you only have a single "master" branch, hence pushing to origin master sends changes from your master branch up to GitHub.
 
-##<a name="week11">Goals for Week 11-12</a>
+## <a name="week5">Goals for Week 5</a>
 1. Add a Git upstream, merge in changes from the upstream, resolve a simple merge conflict
 1. (Optional) Choose your adventure if you want to flex your coding skills on more advanced mapping concepts.
 
-###Git Upstream, Merge, Conflict Resolution
+### Git Upstream, Merge, Conflict Resolution
 When you fork a GitHub repository it's often, but not always, that you want to merge changes from original project back into your copy. In this case the original repo is called the "upstream".
 
 As a simple example, the README.md and SC-CODES-README.md have been changed in the upstream since you forked. Let's merge in the changes.
@@ -134,11 +117,11 @@ In the terminal, run ``git branch -a``
 
 We're going to tell Git where to find the ["remote upstream"](https://help.github.com/articles/configuring-a-remote-for-a-fork/) pointing at our [original template project](https://github.com/codeforgreenville/leaflet-google-sheets-template) by running ``git remote add upstream https://github.com/codeforgreenville/leaflet-google-sheets-template.git``
 
-Run ``git branch -a`` again and you'll see a new branch "remotes/upstream/master"
-
 We want to grab a copy of the [remote upstream](https://help.github.com/articles/syncing-a-fork/).
 
 ``git fetch upstream``
+
+Run ``git branch -a`` again and you'll see a new branch "remotes/upstream/master"
 
 This fetched the latest upstream code into a branch within your Cloud 9 environment. Note, you won't see anything change within Cloud 9, but your local Git has a copy of the upstream master branch at your disposal.
 

@@ -6,34 +6,59 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
   <link rel="stylesheet" href="./map.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
-  <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=bA5WISoAPsk5r0GJ3hHGTkAMFEskFOA2"></script>
+  <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=aEuvhfNGPVWgSKsMVhcT7ozvLAGfxV3w"></script>
 </head>
 <body>
 	<div id="map">
 		
 	</div>
 	
-    <script>
+<script>
+
+    var treeIcon = new L.Icon({
+      iconUrl: './tree.png',
+      iconSize: [20, 34],
+      iconAnchor: [10, 34],
+      popupAnchor: [0, -34],
+      shadowSize: [0, 0]
+     });
+
       // using leafletjs.com and its GeoJSON    
     function onEachPointFeature(feature, layer) {
       // does this feature have a property named title?
       if (feature.properties && feature.properties.title) {
-      	var popuphtml = "<strong>" + feature.properties.title
-      	 + "</strong><ul><li># of Trees: "
-      	 + feature.properties.count
-      	 + "</li><li>Species: "
-      	 + feature.properties.species
-      	 + "</li></ul>";
+      	var popuphtml = "<strong>" + feature.properties.title + "</strong><ul>"
+         + "<li># of Trees: " + feature.properties.count + "</li>"
+      	 + "<li>Species: " + feature.properties.species + "</li>"
+      	 + "<li>Latitude: " + feature.geometry.coordinates[1] + "</li>"
+      	 + "<li>Longitude: " + feature.geometry.coordinates[0] + "</li>"
+      	 + "</ul>";
         layer.bindPopup(popuphtml);
       }
+      layer.setIcon(treeIcon);
     }
 
+    var trailcount = 0;
+
     function onEachLineFeature(feature, layer) {
+      layer.options.color = '#01a833';
+      layer.options.opacity = 1;
+      layer.options.weight = 8;
+//      console.log(layer);
+
+      if(trailcount == 2) {
+        layer.options.weight = 6;
+        layer.options.opacity = .7;
+        layer.options.dashArray = [10,10,10];
+      }
       // does this feature have a property named title?
       if (feature.properties && feature.properties.title) {
-      	var popuphtml = "<strong>" + feature.properties.title + "</strong>";
+        var popuphtml = "<strong>" + feature.properties.title + "</strong>";
+        popuphtml = popuphtml + "</li></ul>";
         layer.bindPopup(popuphtml);
       }
+      trailcount++;
+
     }
 
     // Read JSON to variable via http://stackoverflow.com/questions/8191238/how-can-i-set-json-into-a-variable-from-a-local-url
@@ -61,7 +86,7 @@
         onEachFeature: onEachPointFeature
       }).addTo(map);
 
-      var swamprabbit = JSON.parse(readJSON('https://data.openupstate.org/maps/swamp-rabbit-trail/trail.geojson'));
+      var swamprabbit = JSON.parse(readJSON('/map/cache/swamp-rabbit-trail-path/trail.geojson'));
 
       srt = L.geoJson(swamprabbit, {
         onEachFeature: onEachLineFeature
